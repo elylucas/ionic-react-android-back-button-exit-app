@@ -1,0 +1,7 @@
+{
+  "name": "android-back-button-location-fixes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
