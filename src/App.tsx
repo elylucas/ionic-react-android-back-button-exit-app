@@ -7,7 +7,7 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
@@ -33,13 +33,20 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import BackButtonListener from './components/BackButtonListener';
+import Details from './pages/Details';
 
-const App: React.FC = () => (
+
+const App: React.FC = () => {
+
+  return (
   <IonApp>
     <IonReactRouter>
+      <BackButtonListener>
       <IonTabs>
         <IonRouterOutlet>
           <Route path="/tab1" component={Tab1} exact={true} />
+          <Route path="/tab1/details" component={Details} exact={true} />
           <Route path="/tab2" component={Tab2} exact={true} />
           <Route path="/tab3" component={Tab3} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
@@ -59,8 +66,9 @@ const App: React.FC = () => (
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
+      </BackButtonListener>
     </IonReactRouter>
-  </IonApp>
-);
+  </IonApp>);
+};
 
 export default App;
